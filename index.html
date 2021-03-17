@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp" lang="eng">
+  
+
 <head>
+  <title>payments page</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
    <style>
      body {
@@ -201,14 +205,29 @@ input.phone {
 }
 
    </style> 
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="script.js"></script>
+
+
+
 </head>
 
-<body>
+
+
+
+
+
+<body ng-controller="ctrl1">
   <div class="container">
     <div class="header">
-      <img class="company_header_logo" src="img/vilogo.jpeg" alt="img Not found">
+      <img class="company_header_logo" src="" id="merchantlogourl" alt="img Not found">
       <div class="company_header_name" >
-        <h2 >Oil And Natural Gas Corporation Ltd.</h2>
+        <h2 id="merchantcompanyname"></h2>
       </div> 
     </div>
   
@@ -259,17 +278,21 @@ input.phone {
       <div style="width: 100;">
         <h6 class="paytm_company_logo_text">powered by </h6>
         <a href="https://business.paytm.com/"> 
-            <img class="paytm_company_logo" title="business.paytm.com" src="img/paytm_logo.png" alt="img Not found">
+            <img class="paytm_company_logo" title="business.paytm.com" src="" id="paytmlogolink" alt="img Not found">
         </a>
     </div>
       
       
   </div>
   <div class="footer"></div>
-    
-  
 
 
 </div>
+
+
+
 </body>
+
+
+
 </html>
