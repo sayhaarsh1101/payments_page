@@ -1,233 +1,17 @@
 <!DOCTYPE html>
-<html ng-app="myApp" lang="eng">
-  
-
+<html>
 <head>
-  <title>payments page</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <style>
-     body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color:#E5E5E5;
-}
-
-    * {
-  box-sizing: border-box;
-}
-
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-input[type=number], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-.container{
-    margin: 25px auto 25px auto;
-    border-radius: 1%; 
-}
-
-
-.body {
-  border: 1px solid gray;
-  max-width: 700px;
-  margin: auto;
-  padding: 16px;
-  background-color: white;
-}
-
-.header{
-
-  height: 5rem;
-  background-color: #1C8BAE;
-  margin: auto;
-  max-width: 700px;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  padding: 5px 20% 5px 5px;
-}
-
-
-.company_header_name {
-        display: table;
-        vertical-align: middle;
-        text-align: center;
-        color: #fff;
-        padding: 0px;
-        width: 600px;
-        height: 5rem;
-        
-
-    }
-
-.company_header_logo {
-  
-  padding: 1% 0% 1% 3%;
-        height: auto;
-        width: 20%;
-      
-        
-}
-
-.note_div {
-  padding: 6px 6px 8px 6px;
-  text-align: center;
-  margin-bottom: 2%;
-}
-.form{
-  background-color: #F8EDED;
-  width: 80%;
-  margin: auto;
-}
-.paytm_company_logo {
-    height: auto;
-
-    margin-left: 80%;
-    width: 18%;
-    justify-content: bottom;
-
-    position: relative;
-
-}
-.paytm_company_logo_text {
-    height: auto;
-    margin-bottom: 0%;
-    margin-top: 10%;
-    margin-left: 81%;
-    justify-content: bottom;
-}
-
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-  padding: 6px;
-}
-
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-  padding: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.submit {
-  width: 100%;
-  padding: 12px 20px;
-  text-align: center;
-  border: none;
-  border-radius: 4px;
-  
-}
-button {
-
-background: transparent;
-border: none;
-background:#1C8BAE;
-color: #fff;
-height: 30px;
-width: 100px;
-position: center;
-border-radius: 4px;
-
-transition: all 0.35s ease;
-}
-
-
-input.phone {
-    border-top-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden;
-    border-bottom-style: hidden;
-    background-color: #F8EDED;
-    
-    color: black;
-    font-weight: 900;
-    border-width: 10rem;
-}
-
-.footer{
-  background-color:#1C8BAE ;
-  padding: 6px;
-  max-width: 700px;
-  margin: auto;
-}
-@media screen and (min-width: 310px)and (max-width: 700px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-  .footer{
-    width: 100%;
-    
-  }
-  .company_header_name{
-    font-size: small;
-    width: 80%;
-  }
-  
-}
-
-@media screen and (max-width: 310px){
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-  .company_header_name{
-    font-size:x-small;
-    width:80%
-  }
-  .note_div{
-    font-size: small;
-    
-  }
-}
-
-   </style> 
-
-
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script src="script.js"></script>
-
-
+    <link rel="stylesheet" href="https://paymentslink-cssfile.s3.ap-south-1.amazonaws.com/style.css">
 
 </head>
 
-
-
-
-
-
-<body ng-controller="ctrl1">
+<body ng-app="myApp" ng-controller="myCtrl">
   <div class="container">
     <div class="header">
-      <img class="company_header_logo" src="" id="merchantlogourl" alt="img Not found">
+      <img id="merchant_company_logo" class="company_header_logo" src="" alt="img Not found">
       <div class="company_header_name" >
-        <h2 id="merchantcompanyname"></h2>
+        <h2 id=merchant_company_name></h2>
       </div> 
     </div>
   
@@ -235,10 +19,12 @@ input.phone {
       <div class="note_div">
         <h5>NOTE: Please provide Name and Amount below and click on Submit</h5>
     </div>
-      <div class="form">
-        <form>
+      <div  class="form">
+        <form id="datacollectform">
 
-          <div class="row">
+          
+
+         <!-- <div class="row">
             <div class="col-25">
               <label for="phone"><b>Phone</b></label>
             </div>
@@ -259,18 +45,17 @@ input.phone {
           <div class="row">
             <div class="col-25">
               <label for="amount"><b>Amount</b></label>
-            </div>
-            
+            </div>             
             <div class="col-75">
               <input type="number" placeholder="Enter Amount" name="amount" id="amount" required><br>
             </div>
           </div>
           <div class="row">
             <div class="submit">
-              <button type="submitbtn">Submit</button>
+              <button id=btn1 type="submitbtn">Submit</button>
             </div>
           </div>
-          
+           -->
         </form>
         
       </div>
@@ -278,21 +63,21 @@ input.phone {
       <div style="width: 100;">
         <h6 class="paytm_company_logo_text">powered by </h6>
         <a href="https://business.paytm.com/"> 
-            <img class="paytm_company_logo" title="business.paytm.com" src="" id="paytmlogolink" alt="img Not found">
+            <img class="paytm_company_logo" title="business.paytm.com"  id="paytmlogolink" src="" alt="img Not found">
         </a>
     </div>
       
       
   </div>
   <div class="footer"></div>
+    
+  
 
 
 </div>
 
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://paymentslink-script-file.s3.ap-south-1.amazonaws.com/myscript.js"></script>
 </body>
-
-
 
 </html>
