@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://paymentslink-cssfile.s3.ap-south-1.amazonaws.com/style.css">
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+  <div class="container">
+    <div class="header">
+      <img id="merchant_company_logo" class="company_header_logo" src="" alt="img Not found">
+      <div class="company_header_name" >
+        <h2 id=merchant_company_name></h2>
+      </div> 
+    </div>
+  
+    <div class="body">
+      <div class="note_div">
+        <h5>NOTE: Please provide Name and Amount below and click on Submit</h5>
+    </div>
+      <div  class="form">
+        <form id="datacollectform">
+
+          
+
+         <!-- <div class="row">
+            <div class="col-25">
+              <label for="phone"><b>Phone</b></label>
+            </div>
+            <div class="col-75">
+              <input type="text" placeholder="+91 9988776655" class="phone" id="phone" readonly><br>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="name"><b>Name</b></label>
+            </div>
+            <div class="col-75">
+              <input type="text" placeholder="Enter Name" name="Name" id="name" required><br>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-25">
+              <label for="amount"><b>Amount</b></label>
+            </div>             
+            <div class="col-75">
+              <input type="number" placeholder="Enter Amount" name="amount" id="amount" required><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="submit">
+              <button id=btn1 type="submitbtn">Submit</button>
+            </div>
+          </div>
+           -->
+        </form>
+        
+      </div>
+
+      <div style="width: 100;">
+        <h6 class="paytm_company_logo_text">powered by </h6>
+        <a href="https://business.paytm.com/"> 
+            <img class="paytm_company_logo" title="business.paytm.com"  id="paytmlogolink" src="" alt="img Not found">
+        </a>
+    </div>
+      
+      
+  </div>
+  <div class="footer"></div>
+    
+  
+
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://paymentslink-script-file.s3.ap-south-1.amazonaws.com/myscript.js"></script>
+</body>
+
+</html>
